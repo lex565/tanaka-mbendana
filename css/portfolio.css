@@ -3,6 +3,20 @@
    Extends style.css for the LinkedIn portfolio version
    ============================================================ */
 
+/* ── Hero research profile ── */
+.hero-research-profile {
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: rgba(248,250,252,0.72);
+  animation: fadeSlideDown 1s 0.3s ease both;
+}
+
+.hero-research-profile p { margin-bottom: 0.85em; }
+.hero-research-profile p:last-child { margin-bottom: 0; }
+
 /* ── Hero CTA row ── */
 .hero-cta-row {
   display: flex;
@@ -229,6 +243,50 @@
   color: var(--accent-green);
   flex-shrink: 0;
   margin-top: 3px;
+}
+
+/* ── Research interests grid ── */
+.research-interests-block {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem;
+  background: var(--glass);
+}
+
+.research-interests-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.interest-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem;
+  background: rgba(255,255,255,0.02);
+  transition: var(--transition);
+  min-width: 0;
+}
+
+.interest-card:hover { background: var(--glass-hover); transform: translateY(-3px); }
+
+.interest-icon {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.interest-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+
+.interest-desc {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  line-height: 1.55;
 }
 
 /* ── About text ── */
@@ -482,6 +540,7 @@
   .skills-grid { grid-template-columns: 1fr 1fr; }
   .education-cards { grid-template-columns: 1fr; }
   .tools-grid { grid-template-columns: 1fr 1fr; }
+  .research-interests-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 640px) {
@@ -489,4 +548,5 @@
   .research-side { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
   .tools-grid { grid-template-columns: 1fr; }
+  .research-interests-grid { grid-template-columns: 1fr; }
 }

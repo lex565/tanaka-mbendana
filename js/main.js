@@ -36,12 +36,21 @@ function buildResearchSection() {
     dataChips.innerHTML = RESEARCH.keyData.map(d => `<div class="data-chip">${d}</div>`).join('');
   }
 
-  const findingsEl = document.getElementById('findings-list');
-  if (findingsEl) {
-    findingsEl.innerHTML = RESEARCH.keyFindings.map((f, i) => `
-      <div class="finding-item">
-        <span class="finding-num">${String(i + 1).padStart(2, '0')}</span>
-        <span>${f}</span>
+  const interestsEl = document.getElementById('research-interests');
+  if (interestsEl) {
+    const interests = [
+      { icon: '🛰', label: 'Solar Induced Fluorescence (SIF)', desc: 'Physiological vegetation stress detection from TROPOMI/Sentinel-5P', color: '#3B82F6' },
+      { icon: '🌀', label: 'Tropical Cyclone Impacts', desc: 'Vegetation response to cyclone events across Southern Africa', color: '#F59E0B' },
+      { icon: '🌍', label: 'Southern African Ecoregions', desc: 'Scale-dependent ecological responses in miombo, savanna, and coastal forest', color: '#10B981' },
+      { icon: '📡', label: 'Multi-scale Spatial Analysis', desc: 'How spatial aggregation choices change what satellite signals reveal', color: '#8B5CF6' },
+      { icon: '🤖', label: 'AI-Assisted Research Pipelines', desc: 'Integrating LLMs and agentic tools into the scientific workflow', color: '#EC4899' },
+      { icon: '🔄', label: 'Ecological Recovery Modelling', desc: 'Post-disturbance SIF recovery trajectories and predictors', color: '#06B6D4' }
+    ];
+    interestsEl.innerHTML = interests.map(i => `
+      <div class="interest-card">
+        <div class="interest-icon" style="color:${i.color}">${i.icon}</div>
+        <div class="interest-label" style="color:${i.color}">${i.label}</div>
+        <div class="interest-desc">${i.desc}</div>
       </div>
     `).join('');
   }
