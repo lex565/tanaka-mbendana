@@ -171,8 +171,8 @@ export function initGlobe() {
     interactive:              false,
     attributionControl:       false,
     logoPosition:             'bottom-right',
-    antialias:                false,   // halves GPU fill cost — big win for background map
-    fadeDuration:             0,        // tiles appear instantly — no fade-in delay
+    antialias:                true,
+    fadeDuration:             300,
     preserveDrawingBuffer:    false,
     trackResize:              true,
     optimizeForTerrain:       false,
