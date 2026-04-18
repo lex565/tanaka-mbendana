@@ -28,12 +28,14 @@ function initHero() {
 
 // ── Research section ──
 function buildResearchSection() {
-  const abstractEl = document.getElementById('research-abstract-text');
-  if (abstractEl) abstractEl.textContent = RESEARCH.abstract.replace(/\s+/g, ' ').trim();
-
-  const dataChips = document.getElementById('data-chips');
-  if (dataChips) {
-    dataChips.innerHTML = RESEARCH.keyData.map(d => `<div class="data-chip">${d}</div>`).join('');
+  const tagsEl = document.getElementById('research-area-tags');
+  if (tagsEl) {
+    const areas = [
+      'Satellite Remote Sensing', 'Solar Induced Fluorescence',
+      'Tropical Cyclones', 'Southern Africa', 'Vegetation Ecology',
+      'Spatial Scale Analysis', 'Ecological Disturbance'
+    ];
+    tagsEl.innerHTML = areas.map(a => `<div class="data-chip">${a}</div>`).join('');
   }
 
   const interestsEl = document.getElementById('research-interests');
@@ -82,8 +84,19 @@ function buildProfileSection() {
 
   const toolsEl = document.getElementById('tools-grid');
   if (toolsEl) {
-    toolsEl.innerHTML = PROFILE.tools.map(t => `
+    const tools = [
+      { name: 'QGIS',       role: 'Spatial data management, map production & geospatial analysis',  color: '#589632', abbr: 'QGIS'    },
+      { name: 'ArcGIS',     role: 'Advanced GIS analysis, geodatabase management & cartography',     color: '#0079C1', abbr: 'ArcGIS'  },
+      { name: 'R / RStudio',role: 'Statistical computing, spatial statistics & data visualisation',  color: '#276DC2', abbr: 'R'       },
+      { name: 'MATLAB',     role: 'Signal processing, numerical analysis & algorithm development',   color: '#E16737', abbr: 'MATLAB'  },
+      { name: 'SPSS',       role: 'Quantitative data analysis & statistical hypothesis testing',     color: '#007BC0', abbr: 'SPSS'    },
+      { name: 'Python',     role: 'Satellite data processing pipelines & scientific computing',      color: '#3776AB', abbr: 'PY'      },
+      { name: 'Grammarly',  role: 'Academic writing clarity, grammar & style refinement',            color: '#15C39A', abbr: 'Gr'      },
+      { name: 'PaperPal',   role: 'Research writing assistance & manuscript language editing',       color: '#7C3AED', abbr: 'PP'      }
+    ];
+    toolsEl.innerHTML = tools.map(t => `
       <div class="tool-card">
+        <div class="tool-logo-badge" style="background:${t.color}20;color:${t.color};border:1px solid ${t.color}40">${t.abbr}</div>
         <div class="tool-name" style="color:${t.color}">${t.name}</div>
         <div class="tool-role">${t.role}</div>
       </div>
