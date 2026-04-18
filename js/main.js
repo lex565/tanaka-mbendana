@@ -85,22 +85,27 @@ function buildProfileSection() {
   const toolsEl = document.getElementById('tools-grid');
   if (toolsEl) {
     const tools = [
-      { name: 'QGIS',       role: 'Spatial data management, map production & geospatial analysis',  color: '#589632', abbr: 'QGIS'    },
-      { name: 'ArcGIS',     role: 'Advanced GIS analysis, geodatabase management & cartography',     color: '#0079C1', abbr: 'ArcGIS'  },
-      { name: 'R / RStudio',role: 'Statistical computing, spatial statistics & data visualisation',  color: '#276DC2', abbr: 'R'       },
-      { name: 'MATLAB',     role: 'Signal processing, numerical analysis & algorithm development',   color: '#E16737', abbr: 'MATLAB'  },
-      { name: 'SPSS',       role: 'Quantitative data analysis & statistical hypothesis testing',     color: '#007BC0', abbr: 'SPSS'    },
-      { name: 'Python',     role: 'Satellite data processing pipelines & scientific computing',      color: '#3776AB', abbr: 'PY'      },
-      { name: 'Grammarly',  role: 'Academic writing clarity, grammar & style refinement',            color: '#15C39A', abbr: 'Gr'      },
-      { name: 'PaperPal',   role: 'Research writing assistance & manuscript language editing',       color: '#7C3AED', abbr: 'PP'      }
+      { name: 'QGIS',        role: 'Spatial data management, map production & geospatial analysis', color: '#589632', logo: 'images/logo-qgis.svg'      },
+      { name: 'ArcGIS',      role: 'Advanced GIS analysis, geodatabase management & cartography',   color: '#0079C1', logo: null, abbr: 'ArcGIS'          },
+      { name: 'R / RStudio', role: 'Statistical computing, spatial statistics & data visualisation',color: '#276DC2', logo: 'images/logo-r.png'           },
+      { name: 'MATLAB',      role: 'Signal processing, numerical analysis & algorithm development',  color: '#E16737', logo: 'images/logo-matlab.png'      },
+      { name: 'SPSS',        role: 'Quantitative data analysis & statistical hypothesis testing',    color: '#007BC0', logo: null, abbr: 'SPSS'            },
+      { name: 'Python',      role: 'Satellite data processing pipelines & scientific computing',     color: '#3776AB', logo: 'images/logo-python.svg'      },
+      { name: 'Grammarly',   role: 'Academic writing clarity, grammar & style refinement',           color: '#15C39A', logo: 'images/logo-grammarly.svg'   },
+      { name: 'PaperPal',    role: 'Research writing assistance & manuscript language editing',      color: '#7C3AED', logo: null, abbr: 'PP'              }
     ];
-    toolsEl.innerHTML = tools.map(t => `
-      <div class="tool-card">
-        <div class="tool-logo-badge" style="background:${t.color}20;color:${t.color};border:1px solid ${t.color}40">${t.abbr}</div>
-        <div class="tool-name" style="color:${t.color}">${t.name}</div>
-        <div class="tool-role">${t.role}</div>
-      </div>
-    `).join('');
+    toolsEl.innerHTML = tools.map(t => {
+      const logoHtml = t.logo
+        ? `<img src="${t.logo}" alt="${t.name}" class="tool-logo-img" />`
+        : `<div class="tool-logo-badge" style="background:${t.color}20;color:${t.color};border:1px solid ${t.color}40">${t.abbr}</div>`;
+      return `
+        <div class="tool-card">
+          ${logoHtml}
+          <div class="tool-name" style="color:${t.color}">${t.name}</div>
+          <div class="tool-role">${t.role}</div>
+        </div>
+      `;
+    }).join('');
   }
 }
 

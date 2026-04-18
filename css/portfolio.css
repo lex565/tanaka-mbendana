@@ -136,6 +136,16 @@
   margin-top: 1.5rem;
 }
 
+.tool-logo-img {
+  height: 32px;
+  width: auto;
+  max-width: 80px;
+  object-fit: contain;
+  margin-bottom: 0.6rem;
+  display: block;
+  filter: brightness(0.95);
+}
+
 .tool-logo-badge {
   display: inline-flex;
   align-items: center;
